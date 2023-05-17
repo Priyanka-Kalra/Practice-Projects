@@ -19,10 +19,20 @@ while (command !== 'quit') {
     }
 
     else if (command == 'delete') {
-        let index = prompt('Enter the index for which task is to be delete');
 
-        if (index >= tasks.length) console.log('Task does not exist');
-        else tasks.splice(index, 1);
+        const index = parseInt(prompt('Enter the index for which task is to be delete'));
+
+        if (!Number.isNaN(index)) {
+            if (index >= tasks.length) console.log('Task does not exist');
+            else {
+                console.log(`Delted the task \'${tasks[index]}\' `);
+                tasks.splice(index, 1);
+            }
+        }
+        else {
+            console.log('Index Not known');
+        }
+
     }
     else if (command == 'quit') break;
     console.log('*'.repeat(20));
